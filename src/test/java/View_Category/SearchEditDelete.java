@@ -1,4 +1,4 @@
-package View_Book;
+package View_Category;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,9 +6,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class SearchBar {
-
-    ChromeDriver driver;
+public class SearchEditDelete {
+    
+     ChromeDriver driver;
 
     @BeforeTest
     public void setup() throws InterruptedException {
@@ -23,38 +23,37 @@ public class SearchBar {
         Thread.sleep(3000);
     }
 
-    // Method to navigate to the "View Book" page
-    public void navigateToViewBook() throws InterruptedException {
-        // Navigate to Manage Books and then View Book
-        driver.findElement(By.xpath("//span[text()='Manage Books']")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//a[text()='View Book']")).click();
-        Thread.sleep(2000);
+    // Method to navigate to the "View category" page
+    public void navigateToViewCategory() throws InterruptedException {
+        
+        driver.findElement(By.xpath("//span[text()='Manage Category']")).click();
+        driver.findElement(By.xpath("//a[text()='View Category']")).click();
+        Thread.sleep(1000);  // Wait for the page to load
     }
 
     @Test
     public void TC1_search() throws InterruptedException {
         // Navigate to View Book before performing the search in TC1
-        navigateToViewBook();
+        navigateToViewCategory();
 
         // Perform search action
-        driver.findElement(By.xpath("//input[@type='search']")).sendKeys("sumal");
+        driver.findElement(By.xpath("//input[@type='search']")).sendKeys("5678");
         
-        // Edit the book with ID=1
-        driver.findElement(By.xpath("//a[@href='edit-book.php?id=1']")).click();
+        // Edit the category with ID=1
+        driver.findElement(By.xpath("//a[@href='edit-category.php?id=1']")).click();
         Thread.sleep(3000);
     }
 
     @Test
     public void TC2_search() throws InterruptedException {
-        // Navigate to View Book before performing the search in TC2
-        navigateToViewBook();
+        // Navigate to View category before performing the search in TC2
+        navigateToViewCategory();
 
         // Perform search action
-        driver.findElement(By.xpath("//input[@type='search']")).sendKeys("sumal");
+        driver.findElement(By.xpath("//input[@type='search']")).sendKeys("5678");
         
-        // View the book with ID=1
-        driver.findElement(By.xpath("//a[@href='view-book.php?ids=1']")).click();
+        // View the category with ID=1
+        driver.findElement(By.xpath("//a[@href='view-category.php?ids=1']")).click();
         Thread.sleep(3000);
     }
 
