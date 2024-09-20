@@ -14,7 +14,7 @@ public class RequiredType {
     @BeforeTest
     public void setUp() throws InterruptedException {
         driver = new ChromeDriver();
-        driver.get("http://localhost/E_library/Library_Management_admin_PHP/admin/");
+        driver.get("http://localhost/Library_Management_admin_PHP/admin/");
 
         // Log in to the admin panel
         driver.findElement(By.id("inputEmail")).sendKeys("admin@library.com");
